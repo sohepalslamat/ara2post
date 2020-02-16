@@ -1,7 +1,9 @@
 <template>
-  <v-btn color="success" @click="$router.push({path: '/'})">
-    home
-  </v-btn>
+  <v-content>
+    <v-btn color="success" @click="$router.push({path: '/'})">
+      home
+    </v-btn>
+  </v-content>
 </template>
 
 <script>
