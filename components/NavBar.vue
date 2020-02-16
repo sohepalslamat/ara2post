@@ -1,8 +1,9 @@
 <template>
-  <v-card class="overflow-hidden">
+  <v-app class="overflow-hidden">
     <v-navigation-drawer
       v-model="drawer"
       app
+      flat
       dark
       right
       mini-variant
@@ -32,9 +33,8 @@
       app
       color="rgb(57, 74, 76)"
       dark
-      dense
+      flat
       shrink-on-scroll
-      prominent
       src="https://picsum.photos/1920/1080?random"
       fade-img-on-scroll
       scroll-target="#scrolling-techniques-2"
@@ -47,29 +47,33 @@
         />
       </template>
 
-      <v-app-bar-nav-icon @click="drawer=!drawer" />
+      <v-btn icon @click="drawer=!drawer">
+        <v-icon>account_circle</v-icon>
+      </v-btn>
 
-      <v-toolbar-title>Title</v-toolbar-title>
+      <v-btn icon>
+        <v-icon>search</v-icon>
+      </v-btn>
 
       <v-spacer />
+      <v-toolbar-title>
+        <span class="grey--text text--lighten-1">Fekra</span><span class="display-1">P</span><span class="display-1">ost</span>
+      </v-toolbar-title>
 
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+      <v-app-bar-nav-icon @click="drawer=!drawer" />
 
       <template v-slot:extension>
-        <v-tabs align-with-title>
-          <v-tab>Tab 1</v-tab>
-          <v-tab>Tab 2</v-tab>
-          <v-tab>Tab 3</v-tab>
+        <v-tabs right class="pr-8">
+          <v-tab
+            v-for="link in rev_links"
+            :key="link.text"
+            router
+            :to="link.route"
+          >
+            <v-list-item-title class="headline">
+              {{ link.text }}
+            </v-list-item-title>
+          </v-tab>
         </v-tabs>
       </template>
     </v-app-bar>
@@ -81,8 +85,19 @@
       <v-container style="height: 1000px; margin-top: 250px">
         <nuxt class="mt-12 pa-12" />
       </v-container>
+      <v-footer dark>
+        <v-btn class="title" text color="accent-4">
+          <span>المفضلات</span>
+        </v-btn>
+
+        <v-btn class="title" text color="accent-4">
+          <span>الموقع</span>
+        </v-btn>
+        <v-spacer />
+        <span>&copy; 2020</span>
+      </v-footer>
     </v-sheet>
-  </v-card>
+  </v-app>
 </template>
 
 <script>
@@ -99,6 +114,12 @@ export default {
         { icon: 'contact_mail', text: 'اتصل بنا', route: '/contact' }
 
       ]
+    }
+  },
+  computed: {
+    rev_links () {
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      return this.links.reverse()
     }
   }
 
