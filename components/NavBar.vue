@@ -38,7 +38,7 @@
       src="https://picsum.photos/1920/1080?random"
       fade-img-on-scroll
       scroll-target="#scrolling-techniques-2"
-      scroll-threshold="500"
+      scroll-threshold="100"
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -46,7 +46,54 @@
           gradient="to top right, rgba(236, 61, 74, 0.5), rgba(64, 60, 61, 0.5)"
         />
       </template>
-
+      <v-speed-dial
+        v-model="fab"
+        top
+        left
+        direction
+        open-on-hover="hover"
+        transition="slide-y-reverse-transition"
+      >
+        <template v-slot:activator>
+          <v-btn
+            v-model="fab"
+            color="blue darken-2"
+            dark
+            fab
+          >
+            <v-icon v-if="fab">
+              mdi-close
+            </v-icon>
+            <v-icon v-else>
+              mdi-account-circle
+            </v-icon>
+          </v-btn>
+        </template>
+        <v-btn
+          fab
+          dark
+          small
+          color="green"
+        >
+          <v-icon>mdi-pencil</v-icon>
+        </v-btn>
+        <v-btn
+          fab
+          dark
+          small
+          color="indigo"
+        >
+          <v-icon>mdi-plus</v-icon>
+        </v-btn>
+        <v-btn
+          fab
+          dark
+          small
+          color="red"
+        >
+          <v-icon>mdi-delete</v-icon>
+        </v-btn>
+      </v-speed-dial>
       <v-btn icon @click="drawer=!drawer">
         <v-icon>account_circle</v-icon>
       </v-btn>
@@ -63,14 +110,14 @@
       <v-app-bar-nav-icon @click="drawer=!drawer" />
 
       <template v-slot:extension>
-        <v-tabs right class="pr-8">
+        <v-tabs right class="pr-8 hidden-xs-only">
           <v-tab
             v-for="link in rev_links"
             :key="link.text"
             router
             :to="link.route"
           >
-            <v-list-item-title class="headline">
+            <v-list-item-title>
               {{ link.text }}
             </v-list-item-title>
           </v-tab>
@@ -83,7 +130,7 @@
       max-height="600"
     >
       <v-container style="height: 1000px; margin-top: 250px">
-        <nuxt class="mt-12 pa-12" />
+        <nuxt />
       </v-container>
       <v-footer dark>
         <v-btn class="title" text color="accent-4">
@@ -105,6 +152,7 @@ export default {
   data () {
     return {
       drawer: false,
+      fab: false,
       links: [
         { icon: 'home', text: 'الرئيسية', route: '/' },
         { icon: 'card_travel', text: 'سياسة', route: '/politics' },
