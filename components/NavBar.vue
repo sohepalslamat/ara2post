@@ -1,5 +1,5 @@
 <template>
-  <v-app class="overflow-hidden">
+  <v-card class="overflow-hidden">
     <v-navigation-drawer
       v-model="drawer"
       app
@@ -21,7 +21,7 @@
             <v-icon>{{ link.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title class="title">
+            <v-list-item-title class="title py-4">
               {{ link.text }}
             </v-list-item-title>
           </v-list-item-content>
@@ -57,7 +57,7 @@
 
       <v-spacer />
       <v-toolbar-title>
-        <span class="grey--text text--lighten-1">Fekra</span><span class="display-1">P</span><span class="display-1">ost</span>
+        <span class="grey--text text--lighten-1">Fekra</span><span class="display-1">Post</span>
       </v-toolbar-title>
 
       <v-app-bar-nav-icon @click="drawer=!drawer" />
@@ -97,7 +97,7 @@
         <span>&copy; 2020</span>
       </v-footer>
     </v-sheet>
-  </v-app>
+  </v-card>
 </template>
 
 <script>
@@ -118,8 +118,7 @@ export default {
   },
   computed: {
     rev_links () {
-      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-      return this.links.reverse()
+      return [...this.links].reverse()
     }
   }
 

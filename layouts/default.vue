@@ -1,5 +1,7 @@
 <template>
-  <nav-bar />
+  <v-app style="font-family: 'Cairo', sans-serif !important;">
+    <nav-bar />
+  </v-app>
 </template>
 
 <script>
@@ -14,3 +16,6 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+
+</style>
