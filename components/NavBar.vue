@@ -31,9 +31,11 @@
 
     <v-app-bar
       app
+      class="py-1"
       color="rgb(57, 74, 76)"
       dark
       flat
+      dense
       shrink-on-scroll
       src="https://picsum.photos/1920/1080?random"
       fade-img-on-scroll
@@ -48,9 +50,7 @@
       </template>
       <v-speed-dial
         v-model="fab"
-        top
-        left
-        direction
+        direction="center"
         open-on-hover="hover"
         transition="slide-y-reverse-transition"
       >
@@ -61,10 +61,10 @@
             dark
             fab
           >
-            <v-icon v-if="fab">
+            <v-icon v-if="fab" size="40px">
               mdi-close
             </v-icon>
-            <v-icon v-else>
+            <v-icon v-else size="40px">
               mdi-account-circle
             </v-icon>
           </v-btn>
@@ -94,12 +94,11 @@
           <v-icon>mdi-delete</v-icon>
         </v-btn>
       </v-speed-dial>
-      <v-btn icon @click="drawer=!drawer">
-        <v-icon>account_circle</v-icon>
-      </v-btn>
 
-      <v-btn icon>
-        <v-icon>search</v-icon>
+      <v-btn icon class="mx-4 mt-1">
+        <v-icon size="30px">
+          search
+        </v-icon>
       </v-btn>
 
       <v-spacer />
@@ -129,19 +128,43 @@
       class="overflow-y-auto"
       max-height="600"
     >
-      <v-container style="height: 1000px; margin-top: 250px">
+      <v-content
+        class="mt-5"
+      >
         <nuxt />
-      </v-container>
-      <v-footer dark>
-        <v-btn class="title" text color="accent-4">
-          <span>المفضلات</span>
-        </v-btn>
+      </v-content>
+      <v-footer
+        dark
+        padless
+      >
+        <v-card
+          color="rgb(57, 74, 76)"
+          tile
+          class="white--text text-center"
+        >
+          <v-card-text>
+            <v-btn
+              v-for="icon in icons"
+              :key="icon"
+              class="mx-4 white--text"
+              icon
+            >
+              <v-icon size="24px">
+                {{ icon }}
+              </v-icon>
+            </v-btn>
+          </v-card-text>
 
-        <v-btn class="title" text color="accent-4">
-          <span>الموقع</span>
-        </v-btn>
-        <v-spacer />
-        <span>&copy; 2020</span>
+          <v-card-text class="white--text pt-0">
+            Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+          </v-card-text>
+
+          <v-divider />
+
+          <v-card-text class="grey--text text--lighten-2 subtitle-1">
+            © {{ new Date().getFullYear() }} — <span>FekraPost</span>
+          </v-card-text>
+        </v-card>
       </v-footer>
     </v-sheet>
   </v-card>
@@ -161,6 +184,13 @@ export default {
         { icon: 'rowing', text: 'منوعات', route: '/entertainment' },
         { icon: 'contact_mail', text: 'اتصل بنا', route: '/contact' }
 
+      ],
+      icons: [
+        'fab fa-facebook',
+        'fab fa-twitter',
+        'fab fa-google-plus',
+        'fab fa-linkedin',
+        'fab fa-instagram'
       ]
     }
   },
@@ -173,6 +203,13 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+/* Hide scrollbar for Chrome, Safari and Opera */
+#scrolling-techniques-2::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbar for IE and Edge */
+#scrolling-techniques-2{
+  -ms-overflow-style: none;
+}
 </style>

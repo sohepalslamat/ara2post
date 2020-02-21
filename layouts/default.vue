@@ -1,5 +1,5 @@
 <template>
-  <v-app style="font-family: 'Cairo', sans-serif !important;">
+  <v-app>
     <nav-bar />
   </v-app>
 </template>
@@ -17,5 +17,8 @@ export default {
 }
 </script>
 <style lang="scss">
+*{
+  box-sizing: border-box;
+}
 
 </style>

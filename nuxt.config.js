@@ -15,9 +15,9 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Rajdhani|Cairo|Charm&display=swap' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Rajdhani|Cairo|Charm|El+Messiri&display=swap' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Material+Icons' },
-      { rel: 'stylesheet', href: 'chttps://use.fontawesome.com/releases/v5.0.13/css/all.css' }
+      { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css' }
     ]
   },
   /*
@@ -81,7 +81,7 @@ export default {
       icons: 'mdi'
     },
     icons: {
-      iconfont: 'mdi'
+      iconfont: 'fa'
     }
   },
   /*
