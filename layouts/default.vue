@@ -13,6 +13,9 @@ export default {
   data () {
     return {
     }
+  },
+  created () {
+    this.$vuetify.rtl = true
   }
 }
 </script>

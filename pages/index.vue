@@ -21,7 +21,7 @@
               align="center"
               justify="center"
             >
-              <v-list-item-content id="item-c">
+              <v-list-item-content style="height: 115px;" class="item-c">
                 <v-list-item-title align="center" class="display-1">
                   {{ slide.title }}
                 </v-list-item-title>
@@ -53,55 +53,68 @@
         </v-carousel-item>
       </v-carousel>
     </v-container>
-    <v-flex
-      class="d-flex flex-wrap justify-space-around mb-6"
-      color="grey lighten-2"
-      flat
-      tile
-    >
-      <v-card
-        class="pa-2"
-        align="center"
-        flat
-        tile
-      >
+    <v-divider />
+    <v-layout row warp justify-space-around>
+      <v-flex xs12 md6 lg4 xl4>
         <h2 align="center" class=" mb-4 subheading grey--text">
           الرئيسية
         </h2>
+        <Article
+          v-for="article in slides"
+          :key="article.title"
+          :data="article"
+          width="70%"
+          class="mx-auto"
+        />
+      </v-flex>
 
-        <v-flex class="d-flex flex-wrap">
-          <Article v-for="i in 5" :key="i" class="mx-1" />
-        </v-flex>
-      </v-card>
-      <v-card
-        class="pa-2 align-self-auto"
-        align="center"
-        flat
-        tile
-      >
+      <v-flex xs12 md6 lg4 xl3>
+        <h2 align="center" class=" mb-4 subheading grey--text">
+          المنتصف
+        </h2>
+        <Article
+          v-for="article in slides"
+          :key="article.title"
+          :data="article"
+          height="300"
+          width="90%"
+          class="mx-auto"
+        />
+      </v-flex>
+
+      <v-flex xs12 md8 lg3 xl3>
         <h2 align="center" class=" mb-4 subheading grey--text">
           الرئيسية
         </h2>
+        <v-card v-for="article in slides" :key="article.title" flat style="cursor: pointer;" class="ma-2 pa-3">
+          <v-layout row nowrap justify-start>
+            <v-flex xs12 lg4 xl4 align-self-start>
+              <v-avatar
+                class="mr-2"
+                size="100"
+                tile
+              >
+                <v-img :src="article.img" />
+              </v-avatar>
+            </v-flex>
 
-        <v-flex class="d-flex flex-wrap">
-          <Article v-for="i in 5" :key="i" class="mx-1" />
-        </v-flex>
-      </v-card>
-      <v-card
-        class="pa-2"
-        align="center"
-        flat
-        tile
-      >
-        <h2 align="center" class=" mb-4 subheading grey--text">
-          الرئيسية
-        </h2>
-
-        <v-flex class="d-flex flex-wrap">
-          <Article v-for="i in 5" :key="i" class="mx-1" />
-        </v-flex>
-      </v-card>
-    </v-flex>
+            <v-flex xs12 lg6 xl7 align-self-start class="mx-2">
+              <p
+                class="title text-right mb-0"
+                v-text="article.title"
+              />
+              <v-btn
+                text
+                class="ma-0 body-2"
+                color="rgb(117, 111, 111)"
+              >
+                {{ article.author }}
+              </v-btn>
+            </v-flex>
+          </v-layout>
+        </v-card>
+      </v-flex>
+    </v-layout>
   </v-card>
 </template>
 
@@ -121,7 +134,7 @@ export default {
         'deep-purple accent-4'
       ],
       slides: [
-        { 'title': 'الكون النظير',
+        { 'title': 'الكون النظير الكون النظير الكون النظير الكون النظير',
           'author': 'رأفت الهايل',
           'body': 'اهلا وسهلا بكم في الكون النظير',
           'img': 'https://picsum.photos/1100/400?random',
@@ -142,8 +155,13 @@ export default {
 
       ]
     }
-  }
-}
+  },
+  computed: {
+    widthscreen () {
+      return this.$vuetify.breakpoint.name
+    }
+
+  } }
 </script>
 <style lang="scss">
 .backg-img{
@@ -153,7 +171,7 @@ export default {
   cursor: pointer;
 
 }
-#item-c{
+.item-c{
   #inf{
     position: absolute;
     bottom: 0px;
@@ -167,7 +185,6 @@ export default {
     border: none;
     cursor: pointer;
   }
-  height: 110px;
   background-color: rgba(68, 61, 61, 0.507);
   position: absolute;
   bottom: 0px;

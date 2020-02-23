@@ -1,27 +1,51 @@
 <template>
   <v-card
-    max-width="300"
-    min-width="250"
-    class="mx-auto my-4"
+    :max-width="maxWidth"
+    :min-width="minWidth"
+    :width="width"
+    class="mx-0 my-4"
   >
     <v-img
-      class="relative"
-      src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg"
-      max-height="194"
+      class="relative backg-img"
+      :src="data.img"
+      :min-height="minHeight"
+      :max-height="maxHeight"
+      :height="height"
     />
-    <v-list-item id="cc">
-      <v-list-item-avatar>
+    <v-card>
+      <v-list-item-avatar v-if="false">
         <v-img
           src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg"
         />
       </v-list-item-avatar>
-      <v-list-item-content>
-        <v-list-item-title class="headline">
-          الثورة صفيح ساخن
+      <v-list-item-content class="item-c" style="height: 90px;">
+        <v-list-item-title align="center" class="white--text mt-0 title">
+          {{ data.title }}
         </v-list-item-title>
-        <v-list-item-subtitle>محمد اللطيف</v-list-item-subtitle>
+        <v-chip
+          id="author"
+          label
+          class="mx-1"
+          text-color="white"
+          outlined
+          dense
+        >
+          {{ data.author }}
+        </v-chip>
+        <v-chip
+          id="inf"
+          class="mx-0"
+          color="pink"
+          label
+          text-color="white"
+        >
+          {{ data.category }}
+          <v-icon right>
+            mdi-label fa-rotate-180
+          </v-icon>
+        </v-chip>
       </v-list-item-content>
-    </v-list-item>
+    </v-card>
 
     <v-card-actions>
       <v-spacer />
@@ -37,17 +61,21 @@
 
 <script>
 export default {
+  props: {
+    'maxWidth': { type: [String], default: '95%' },
+    'minWidth': { type: [String], default: '200' },
+    'maxHeight': { type: [String], default: '600' },
+    'minHeight': { type: [String], default: '200' },
+    'height': { type: [String], default: '200' },
+    'width': { type: [String], default: '100%' },
+    'data': { type: [Object], required: true }
+  }
 
 }
 </script>
 
-<style>
+<style lang="scss">
 .relative{
   position: relative;
-}
-#cc{
-  position: absolute;
-  top: 10px;
-  left: 0px;
 }
 </style>

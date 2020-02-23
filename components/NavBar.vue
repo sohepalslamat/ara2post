@@ -10,7 +10,7 @@
       expand-on-hover
       color="rgb(19, 45, 51)"
     >
-      <v-list dense align="right" two-line>
+      <v-list dense two-line>
         <v-list-item
           v-for="link in links"
           :key="link.text"
@@ -21,7 +21,7 @@
             <v-icon>{{ link.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title class="title py-4">
+            <v-list-item-title class="title py-4 mx-3">
               {{ link.text }}
             </v-list-item-title>
           </v-list-item-content>
@@ -48,6 +48,18 @@
           gradient="to top right, rgba(236, 61, 74, 0.5), rgba(64, 60, 61, 0.5)"
         />
       </template>
+      <v-app-bar-nav-icon @click="drawer=!drawer" />
+      <v-toolbar-title>
+        <span class="grey--text text--lighten-1">Fekra</span><span class="display-1">Post</span>
+      </v-toolbar-title>
+
+      <v-spacer />
+      <v-btn icon class="mx-4 mt-1">
+        <v-icon size="30px">
+          search
+        </v-icon>
+      </v-btn>
+
       <v-speed-dial
         v-model="fab"
         direction="center"
@@ -95,23 +107,10 @@
         </v-btn>
       </v-speed-dial>
 
-      <v-btn icon class="mx-4 mt-1">
-        <v-icon size="30px">
-          search
-        </v-icon>
-      </v-btn>
-
-      <v-spacer />
-      <v-toolbar-title>
-        <span class="grey--text text--lighten-1">Fekra</span><span class="display-1">Post</span>
-      </v-toolbar-title>
-
-      <v-app-bar-nav-icon @click="drawer=!drawer" />
-
       <template v-slot:extension>
-        <v-tabs right class="pr-8 hidden-xs-only">
+        <v-tabs class="pr-8 hidden-xs-only">
           <v-tab
-            v-for="link in rev_links"
+            v-for="link in links"
             :key="link.text"
             router
             :to="link.route"
@@ -195,9 +194,6 @@ export default {
     }
   },
   computed: {
-    rev_links () {
-      return [...this.links].reverse()
-    }
   }
 
 }
