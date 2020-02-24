@@ -3,7 +3,6 @@
     :max-width="maxWidth"
     :min-width="minWidth"
     :width="width"
-    class="mx-0 my-4"
   >
     <v-img
       class="relative backg-img"
@@ -18,10 +17,10 @@
           src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg"
         />
       </v-list-item-avatar>
-      <v-list-item-content class="item-c" style="height: 90px;">
-        <v-list-item-title align="center" class="white--text mt-0 title">
+      <v-list-item-content style="min-height: 100px;" class="item-c">
+        <h2 align="center" class="white--text mb-9 px-4 title">
           {{ data.title }}
-        </v-list-item-title>
+        </h2>
         <v-chip
           id="author"
           label
@@ -32,18 +31,16 @@
         >
           {{ data.author }}
         </v-chip>
-        <v-chip
-          id="inf"
-          class="mx-0"
-          color="pink"
-          label
-          text-color="white"
+        <span
+          style="position: absolute; cursor: pointer; bottom: 0px; right: 0px;
+                 border-radius:3px 0px 0px 3px;"
+          class="pink white--text body-1 px-2 py-1"
         >
-          {{ data.category }}
-          <v-icon right>
+          <v-icon right class="white--text ma-0">
             mdi-label fa-rotate-180
           </v-icon>
-        </v-chip>
+          {{ data.category }}
+        </span>
       </v-list-item-content>
     </v-card>
 

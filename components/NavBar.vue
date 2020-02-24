@@ -2,6 +2,7 @@
   <v-card class="overflow-hidden">
     <v-navigation-drawer
       v-model="drawer"
+      class="hidden-md-and-up"
       app
       flat
       dark
@@ -48,7 +49,7 @@
           gradient="to top right, rgba(236, 61, 74, 0.5), rgba(64, 60, 61, 0.5)"
         />
       </template>
-      <v-app-bar-nav-icon @click="drawer=!drawer" />
+      <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer=!drawer" />
       <v-toolbar-title>
         <span class="grey--text text--lighten-1">Fekra</span><span class="display-1">Post</span>
       </v-toolbar-title>

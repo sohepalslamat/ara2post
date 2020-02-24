@@ -21,10 +21,10 @@
               align="center"
               justify="center"
             >
-              <v-list-item-content style="height: 115px;" class="item-c">
-                <v-list-item-title align="center" class="display-1">
+              <v-list-item-content style="min-height: 115px;" class="item-c">
+                <h2 align="center" class="display-1 mb-9">
                   {{ slide.title }}
-                </v-list-item-title>
+                </h2>
                 <v-chip
                   id="author"
                   label
@@ -35,56 +35,70 @@
                 >
                   {{ slide.author }}
                 </v-chip>
-                <v-chip
-                  id="inf"
-                  class="mx-2"
-                  color="pink"
-                  label
-                  text-color="white"
+                <span
+                  style="position: absolute; cursor: pointer; bottom: 0px; right: 0px;
+                 border-radius:3px 0px 0px 3px;"
+                  class="pink white--text subheading px-4 py-1"
                 >
-                  {{ slide.category }}
-                  <v-icon right>
+                  <v-icon right class="white--text ma-0">
                     mdi-label fa-rotate-180
                   </v-icon>
-                </v-chip>
+                  {{ slide.category }}
+                </span>
               </v-list-item-content>
             </v-row>
           </v-sheet>
         </v-carousel-item>
       </v-carousel>
     </v-container>
-    <v-divider />
-    <v-layout row warp justify-space-around>
-      <v-flex xs12 md6 lg4 xl4>
-        <h2 align="center" class=" mb-4 subheading grey--text">
-          الرئيسية
-        </h2>
-        <Article
-          v-for="article in slides"
-          :key="article.title"
-          :data="article"
-          width="70%"
-          class="mx-auto"
-        />
+    <v-divider class="my-4" />
+    <v-layout row warp justify-space-around class="py-4">
+      <v-flex xs12 md12 lg3 xl3>
+        <v-layout column>
+          <v-flex
+            v-for="data in slides"
+            :key="data.title"
+            class="my-6"
+            style="cursor: pointer;"
+          >
+            <v-img
+              class="backg-img mx-auto relative"
+              :src="data.img"
+              height="200"
+              width="300"
+            >
+              <span
+                style="position: absolute; cursor: pointer; bottom: 0px; right: 0px;
+                 border-radius:3px 0px 0px 3px;"
+                class="pink white--text body-2 px-1"
+              >
+                <v-icon right class="white--text ma-0">
+                  mdi-label fa-rotate-180
+                </v-icon>
+                <span class="">{{ data.category }}</span>
+              </span>
+            </v-img>
+            <h2 align="center" style="width:300px" class="my-2 mx-auto title">
+              {{ data.title }}
+            </h2>
+          </v-flex>
+        </v-layout>
       </v-flex>
 
-      <v-flex xs12 md6 lg4 xl3>
-        <h2 align="center" class=" mb-4 subheading grey--text">
-          المنتصف
-        </h2>
+      <v-flex xs12 md12 lg5 xl5>
         <Article
           v-for="article in slides"
           :key="article.title"
           :data="article"
           height="300"
-          width="90%"
-          class="mx-auto"
+          width="600"
+          class="mx-auto my-6"
         />
       </v-flex>
 
-      <v-flex xs12 md8 lg3 xl3>
+      <v-flex xs12 md12 lg3 xl3>
         <h2 align="center" class=" mb-4 subheading grey--text">
-          الرئيسية
+          مقالات الرأي
         </h2>
         <v-card v-for="article in slides" :key="article.title" flat style="cursor: pointer;" class="ma-2 pa-3">
           <v-layout row nowrap justify-start>
@@ -99,7 +113,7 @@
             </v-flex>
 
             <v-flex xs12 lg6 xl7 align-self-start class="mx-2">
-              <p
+              <h2
                 class="title text-right mb-0"
                 v-text="article.title"
               />
@@ -172,12 +186,6 @@ export default {
 
 }
 .item-c{
-  #inf{
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    cursor: pointer;
-  }
   #author{
     position: absolute;
     bottom: 0px;
