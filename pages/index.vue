@@ -25,16 +25,13 @@
                 <h2 align="center" class="display-1 mb-9">
                   {{ slide.title }}
                 </h2>
-                <v-chip
-                  id="author"
-                  label
-                  class="mx-4"
-                  text-color="white"
-                  outlined
-                  dense
+                <span
+                  style="position: absolute; cursor: pointer; bottom: 4px; left: 2px;"
+                  class="white--text subheading mx-4"
                 >
-                  {{ slide.author }}
-                </v-chip>
+                  <span class="mx-5 font-italic">{{ '2020-02-26 22:31:39.847176' |format_date }} </span>
+                  <span v-if="false">{{ slide.author }}</span>
+                </span>
                 <span
                   style="position: absolute; cursor: pointer; bottom: 0px; right: 0px;
                  border-radius:3px 0px 0px 3px;"
@@ -81,6 +78,7 @@
             <h2 align="center" style="width:300px" class="my-2 mx-auto title">
               {{ data.title }}
             </h2>
+            <span class="font-italic mr-6">{{ '2020-02-26 22:31:39.847176' |format_date }} </span>
           </v-flex>
         </v-layout>
       </v-flex>
@@ -124,6 +122,9 @@
               >
                 {{ article.author }}
               </v-btn>
+              <h6 class="font-italic text-left">
+                {{ '2020-02-26 22:31:39.847176' |format_date }}
+              </h6>
             </v-flex>
           </v-layout>
         </v-card>
@@ -134,10 +135,12 @@
 
 <script>
 import Article from '../components/Article.vue'
+import mixin from '../mixins.js'
 export default {
   components: {
     Article
   },
+  mixins: [mixin],
   data () {
     return {
       colors: [

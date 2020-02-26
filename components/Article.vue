@@ -45,6 +45,7 @@
     </v-card>
 
     <v-card-actions>
+      <span class="font-italic">{{ '2020-02-26 22:31:39.847176' |format_date }} </span>
       <v-spacer />
       <v-btn icon>
         <v-icon>mdi-heart</v-icon>
@@ -57,7 +58,9 @@
 </template>
 
 <script>
+import mixin from '../mixins.js'
 export default {
+  mixins: [mixin],
   props: {
     'maxWidth': { type: [String], default: '95%' },
     'minWidth': { type: [String], default: '200' },
