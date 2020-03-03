@@ -48,14 +48,14 @@
         </v-carousel-item>
       </v-carousel>
     </v-container>
-    <v-divider class="my-4" />
-    <v-layout row warp justify-space-around class="py-4">
+    <v-divider class="my-6" />
+    <v-layout row warp justify-space-around>
       <v-flex xs12 md12 lg3 xl3>
         <v-layout column>
           <v-flex
             v-for="data in slides"
             :key="data.title"
-            class="my-6"
+            class="my-5"
             style="cursor: pointer;"
           >
             <v-img
@@ -72,14 +72,17 @@
                 <v-icon right class="white--text ma-0">
                   mdi-label fa-rotate-180
                 </v-icon>
-                <span class="">{{ data.category }}</span>
+                <span>{{ data.category }}</span>
               </span>
             </v-img>
-            <h2 align="center" style="width:300px" class="my-2 mx-auto title">
+            <h2 align="center" style="width:300px" class="my-1 mx-auto title">
               {{ data.title }}
             </h2>
             <span class="font-italic mr-6">{{ '2020-02-26 22:31:39.847176' |format_date }} </span>
           </v-flex>
+          <v-btn class="my-6 lime darken-3" dark>
+            عرض المزيد
+          </v-btn>
         </v-layout>
       </v-flex>
 
@@ -88,31 +91,31 @@
           v-for="article in slides"
           :key="article.title"
           :data="article"
-          height="300"
+          height="270"
           width="600"
-          class="mx-auto my-6"
+          class="mx-auto my-5"
         />
       </v-flex>
 
       <v-flex xs12 md12 lg3 xl3>
-        <h2 align="center" class=" mb-4 subheading grey--text">
+        <h2 align="center" class=" mb-4 subheading grey--text text--darken-2">
           مقالات الرأي
         </h2>
-        <v-card v-for="article in slides" :key="article.title" flat style="cursor: pointer;" class="ma-2 pa-3">
+        <v-card v-for="article in slides" :key="article.title" flat style="cursor: pointer;" class="mx-2 my-4 pa-3">
           <v-layout row nowrap justify-start>
             <v-flex xs12 lg4 xl4 align-self-start>
               <v-avatar
                 class="mr-2"
-                size="100"
+                size="110"
                 tile
               >
                 <v-img :src="article.img" />
               </v-avatar>
             </v-flex>
 
-            <v-flex xs12 lg6 xl7 align-self-start class="mx-2">
+            <v-flex xs12 lg6 xl7 align-self-start class="mr-4">
               <h2
-                class="title text-right mb-0"
+                class="body-1 text-right mb-0 "
                 v-text="article.title"
               />
               <v-btn
@@ -122,12 +125,15 @@
               >
                 {{ article.author }}
               </v-btn>
-              <h6 class="font-italic text-left">
+              <h6 class="font-italic text-left grey--text text--darken-3">
                 {{ '2020-02-26 22:31:39.847176' |format_date }}
               </h6>
             </v-flex>
           </v-layout>
         </v-card>
+        <v-btn class="my-6 lime darken-3" dark>
+          عرض الكل
+        </v-btn>
       </v-flex>
     </v-layout>
   </v-card>
@@ -151,7 +157,7 @@ export default {
         'deep-purple accent-4'
       ],
       slides: [
-        { 'title': 'الكون النظير الكون النظير الكون النظير الكون النظير',
+        { 'title': ' القضية السورية القضية السورية القضية السورية الكون النظير الكون النظير الكون النظير الكون النظير',
           'author': 'رأفت الهايل',
           'body': 'اهلا وسهلا بكم في الكون النظير',
           'img': 'https://picsum.photos/1100/400?random',
