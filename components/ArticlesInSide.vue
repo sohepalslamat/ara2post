@@ -29,7 +29,7 @@
             {{ article.author }}
           </v-btn>
           <h6 class="mx-6 font-italic text-left grey--text text--darken-3">
-            {{ '2020-02-26 22:31:39.847176' |format_date }}
+            {{ article.created_at|format_date }}
           </h6>
         </v-flex>
       </v-layout>

@@ -7,13 +7,13 @@
       <v-icon right class="white--text ma-0">
         mdi-label fa-rotate-180
       </v-icon>
-      <span>سياسة</span>
+      <span>{{ article.category|category_filter }}</span>
     </span>
-    <span class="font-italic">{{ '2020-02-26 22:31:39.847176' |format_date }} </span>
+    <span class="font-italic">{{ article.created_at |format_date }} </span>
     <h1 class="my-5 deep-orange--text text--darken-4">
-      صفيح ساخن جداادلب
+      {{ article.title }}
     </h1>
-    <v-img src="https://picsum.photos/800/300?random" height="400" width="1000" alt="" />
+    <v-img :src="article.img" height="400" width="1000" alt="" />
     <div class="my-3 mx-12">
       <v-avatar
         size="70"
@@ -27,7 +27,7 @@
     </div>
 
     <p class="my-5">
-      gffffffffffffffffffffffffkfghkfjhf
+      {{ article.body }}
     </p>
   </div>
 </template>
@@ -35,7 +35,10 @@
 <script>
 import mixin from '../mixins.js'
 export default {
-  mixins: [mixin]
+  mixins: [mixin],
+  props: {
+    article: { type: Object, required: true }
+  }
 
 }
 </script>

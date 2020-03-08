@@ -63,7 +63,7 @@
 
       <v-speed-dial
         v-model="fab"
-        direction="center"
+        direction="bottom"
         open-on-hover="hover"
         transition="slide-y-reverse-transition"
       >

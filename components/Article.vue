@@ -17,7 +17,7 @@
           src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg"
         />
       </v-list-item-avatar>
-      <v-list-item-content style="min-height: 100px;" class="item-c">
+      <v-list-item-content style="min-height: 100px;" class="three_line item-c">
         <h2 align="center" class="white--text mb-9 px-4 title">
           {{ data.title }}
         </h2>
@@ -39,13 +39,13 @@
           <v-icon right class="white--text ma-0">
             mdi-label fa-rotate-180
           </v-icon>
-          {{ data.category }}
+          {{ data.category|category_filter }}
         </span>
       </v-list-item-content>
     </v-card>
 
     <v-card-actions>
-      <span class="font-italic">{{ '2020-02-26 22:31:39.847176' |format_date }} </span>
+      <span class="font-italic">{{ data.created_at|format_date }} </span>
       <v-spacer />
       <v-btn icon>
         <v-icon>mdi-heart</v-icon>
@@ -78,4 +78,19 @@ export default {
 .relative{
   position: relative;
 }
+
+.item-c{
+  #author{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    border: none;
+    cursor: pointer;
+  }
+  background-color: rgba(68, 61, 61, 0.507);
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  }
 </style>

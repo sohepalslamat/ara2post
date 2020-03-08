@@ -6,6 +6,18 @@ const mixin = {
       if (val) {
         return moment(val).startOf('day').fromNow()
       }
+    },
+    category_filter (val) {
+      switch (val) {
+        case 'politics':
+          return 'سياسة'
+        case 'economy':
+          return 'اقتصاد'
+        case 'culture':
+          return 'ثقافة'
+        case 'entertainment':
+          return 'منوعات'
+      }
     }
   }
 }
