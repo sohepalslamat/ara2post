@@ -1,10 +1,10 @@
 <template>
-  <v-card>
-    <h2 align="center" class=" mb-4 subheading grey--text">
+  <v-card flat>
+    <h2 align="right" class="mr-12 ma-4 subheading grey--text">
       الرئيسية
     </h2>
 
-    <v-flex class="d-flex flex-wrap justify-center px-2">
+    <v-flex class="d-flex flex-wrap justify-center mt-10 px-2">
       <v-card
         v-for="data in slides"
         :key="data.title"

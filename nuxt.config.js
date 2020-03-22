@@ -33,6 +33,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    // module for integration of tiptap-vuetify
+    { src: '~/plugins/Tinymce', mode: 'client' }
   ],
   /*
   ** Nuxt.js dev-modules

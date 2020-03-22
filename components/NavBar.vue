@@ -1,5 +1,5 @@
 <template>
-  <v-card class="overflow-hidden">
+  <v-card flat class="overflow-hidden">
     <v-navigation-drawer
       v-model="drawer"
       class="hidden-md-and-up"
