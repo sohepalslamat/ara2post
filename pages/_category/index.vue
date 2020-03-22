@@ -7,7 +7,7 @@
     <v-flex class="d-flex flex-wrap justify-center mt-10 px-2">
       <v-card
         v-for="data in articles"
-        :key="data.title"
+        :key="data.id"
         class="ma-4"
         height="280"
         width="280"
@@ -62,7 +62,6 @@
 </template>
 
 <script>
-// import Article from '../../components/Article.vue'
 import mixin from '../../mixins.js'
 export default {
   components: {
@@ -73,57 +72,7 @@ export default {
     return {
       category: this.$route.params.category,
       page: 1,
-      slides: [
-        { 'id': 1,
-          'title': ' القضية السورية القضية السورية القضية السورية الكون النظير الكون النظير الكون النظير الكون النظير',
-          'author': 'رأفت الهايل',
-          'body': 'اهلا وسهلا بكم في الكون النظير',
-          'img': 'https://picsum.photos/1100/400?random',
-          'category': 'politics',
-          'created_at': '2020-03-04 22:31:39.847176'
-        },
-        { 'id': 2,
-          'title': 'القضية السورية',
-          'author': 'عيسى الحسن',
-          'body': 'القضية السورية القضية السورية',
-          'img': 'https://picsum.photos/1101/400?random',
-          'category': 'economy',
-          'created_at': '2020-03-01 22:31:39.847176'
-        },
-        { 'id': 3,
-          'title': 'ادلب صفيح ساخن',
-          'author': 'محمود القاسم',
-          'body': 'ادلب على صفيح ساخن الأطراف تستعد ',
-          'img': 'https://picsum.photos/1102/400?random',
-          'category': 'entertainment',
-          'created_at': '2020-03-05 22:31:39.847176'
-        },
-        { 'id': 4,
-          'title': ' القضية السورية القضية السورية القضية السورية الكون النظير الكون النظير الكون النظير الكون النظير',
-          'author': 'رأفت الهايل',
-          'body': 'اهلا وسهلا بكم في الكون النظير',
-          'img': 'https://picsum.photos/1100/400?random',
-          'category': 'politics',
-          'created_at': '2020-03-04 22:31:39.847176'
-        },
-        { 'id': 5,
-          'title': 'القضية السورية',
-          'author': 'عيسى الحسن',
-          'body': 'القضية السورية القضية السورية',
-          'img': 'https://picsum.photos/1101/400?random',
-          'category': 'economy',
-          'created_at': '2020-03-01 22:31:39.847176'
-        },
-        { 'id': 6,
-          'title': 'ادلب صفيح ساخن',
-          'author': 'محمود القاسم',
-          'body': 'ادلب على صفيح ساخن الأطراف تستعد ',
-          'img': 'https://picsum.photos/1102/400?random',
-          'category': 'entertainment',
-          'created_at': '2020-03-05 22:31:39.847176'
-        }
-
-      ]
+      slides: this.$store.state.articles
     }
   },
   computed: {

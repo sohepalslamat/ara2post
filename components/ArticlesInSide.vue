@@ -45,9 +45,9 @@ import mixin from '../mixins.js'
 export default {
   mixins: [mixin],
   props: {
-    'title': { type: [String], required: true, default: 'مقالات الرأي' },
-    'articles': { type: [Array], required: true },
-    'author': { type: [Boolean], default: true }
+    'title': { type: String, default: 'مقالات الرأي' },
+    'articles': { type: Array, required: true },
+    'author': { type: Boolean, default: true }
 
   }
 
