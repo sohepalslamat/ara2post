@@ -6,7 +6,7 @@
 
     <v-flex class="d-flex flex-wrap justify-center mt-10 px-2">
       <v-card
-        v-for="data in slides"
+        v-for="data in articles"
         :key="data.title"
         class="ma-4"
         height="280"
@@ -71,6 +71,7 @@ export default {
   mixins: [mixin],
   data () {
     return {
+      category: this.$route.params.category,
       page: 1,
       slides: [
         { 'id': 1,
@@ -123,6 +124,11 @@ export default {
         }
 
       ]
+    }
+  },
+  computed: {
+    articles () {
+      return this.slides.filter(slide => slide.category === this.category)
     }
   }
 

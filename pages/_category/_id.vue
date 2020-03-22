@@ -22,6 +22,8 @@ export default {
   mixins: [mixin],
   data () {
     return {
+      id: this.$route.params.id,
+      category: this.$route.params.category,
       slides: [
         { 'id': 1,
           'title': ' القضية السورية القضية السورية القضية السورية الكون النظير الكون النظير الكون النظير الكون النظير',
@@ -49,6 +51,11 @@ export default {
         }
 
       ]
+    }
+  },
+  computed: {
+    article () {
+      return this.slides.find(slide => slide.category === this.category && slide.id === this.id)
     }
   }
 

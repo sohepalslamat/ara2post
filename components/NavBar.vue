@@ -64,7 +64,7 @@
       <v-speed-dial
         v-model="fab"
         direction="bottom"
-        open-on-hover="hover"
+        open-on-hover
         transition="slide-y-reverse-transition"
       >
         <template v-slot:activator>
