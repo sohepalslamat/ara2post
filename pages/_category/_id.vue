@@ -32,6 +32,11 @@ export default {
       // eslint-disable-next-line eqeqeq
       return this.slides.find(slide => slide.category == this.category && slide.id == this.id)
     }
+  },
+  head () {
+    return {
+      title: this.article.title
+    }
   }
 
 }

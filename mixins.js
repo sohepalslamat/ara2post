@@ -19,6 +19,21 @@ const mixin = {
           return 'منوعات'
       }
     }
+  },
+  methods: {
+    category_filter (val) {
+      switch (val) {
+        case 'politics':
+          return 'سياسة'
+        case 'economy':
+          return 'اقتصاد'
+        case 'culture':
+          return 'ثقافة'
+        case 'entertainment':
+          return 'منوعات'
+      }
+    }
+
   }
 }
 export default mixin

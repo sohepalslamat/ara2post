@@ -64,9 +64,6 @@
 <script>
 import mixin from '../../mixins.js'
 export default {
-  components: {
-    // Article
-  },
   mixins: [mixin],
   data () {
     return {
@@ -78,6 +75,11 @@ export default {
   computed: {
     articles () {
       return this.slides.filter(slide => slide.category === this.category)
+    }
+  },
+  head () {
+    return {
+      title: this.category_filter(this.category)
     }
   }
 
